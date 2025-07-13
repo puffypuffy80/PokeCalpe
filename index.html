@@ -1,13 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>PokeCalpe - Inicio</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/auth.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PokeCalpe - Portal Pokémon de Fans</title>
+  <meta name="description" content="PokeCalpe: portal con episodios, películas, revistas, libros y más sobre Pokémon." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background-color: #ef5350;
+      padding: 10px 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav > ul {
+      display: flex;
+      gap: 15px;
+    }
+    nav li {
+      position: relative;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+      border-radius: 4px;
+    }
+    nav a:hover {
+      background-color: #d32f2f;
+    }
+    /* Menú desplegable */
+    nav li ul {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background-color: #ef5350;
+      padding: 5px 0;
+      border-radius: 4px;
+      min-width: 140px;
+      z-index: 1000;
+    }
+    nav li:hover ul {
+      display: block;
+    }
+    nav li ul li {
+      width: 100%;
+    }
+    nav li ul li a {
+      padding: 8px 15px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Bienvenido a PokeCalpe</h1>
-    <p>Esta es la página principal. Solo usuarios registrados pueden verla.</p>
+  <header>
+    <h1>PokeCalpe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li>
+          <a href="#">Contenido ▼</a>
+          <ul>
+            <li><a href="musica.html">Música</a></li>
+            <li><a href="pokedex.html">Pokédex</a></li>
+            <li><a href="episodios.html">Episodios</a></li>
+            <li><a href="libros.html">Libros</a></li>
+            <li><a href="peliculas.html">Películas</a></li>
+            <li><a href="tcg.html">TCG</a></li>
+            <li><a href="descargas.html">Descargas</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenido a PokeCalpe</h2>
+    <p>Tu portal Pokémon con episodios, películas, revistas, libros y más.</p>
+  </main>
+
+  <footer style="text-align:center; padding: 15px; background:#eee; margin-top: 40px;">
+    &copy; 2025 PokeCalpe. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
