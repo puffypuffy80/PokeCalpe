@@ -89,6 +89,7 @@
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
       transition: transform 0.2s ease;
     }
 
@@ -123,6 +124,39 @@
     .social i:hover {
       transform: scale(1.2);
       color: #ffd54f;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #ef5350;
     }
 
     @media screen and (max-width: 600px) {
@@ -160,10 +194,10 @@
     </section>
 
     <section class="galeria">
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu">
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard">
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo">
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu" onclick="mostrarInfo('Pikachu', '025', 'El Pokémon eléctrico más famoso del mundo. Leal, valiente y siempre cargado de energía.')">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard" onclick="mostrarInfo('Charizard', '006', 'Una fiera criatura de fuego y vuelo. Uno de los más queridos de la primera generación.')">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo" onclick="mostrarInfo('Mewtwo', '150', 'Creado científicamente, es uno de los Pokémon más poderosos y misteriosos.')">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee" onclick="mostrarInfo('Eevee', '133', 'Con múltiples evoluciones posibles, Eevee representa el potencial y la adaptación.')">
     </section>
   </main>
 
@@ -177,5 +211,33 @@
       <a href="#"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <h2 id="nombrePokemon"></h2>
+      <p><strong>N.º Pokédex:</strong> <span id="numeroPokemon"></span></p>
+      <p id="descripcionPokemon"></p>
+    </div>
+  </div>
+
+  <script>
+    function mostrarInfo(nombre, numero, descripcion) {
+      document.getElementById('nombrePokemon').textContent = nombre;
+      document.getElementById('numeroPokemon').textContent = numero;
+      document.getElementById('descripcionPokemon').textContent = descripcion;
+      document.getElementById('modal').style.display = 'block';
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('modal')) {
+        cerrarModal();
+      }
+    }
+  </script>
 </body>
 </html>
