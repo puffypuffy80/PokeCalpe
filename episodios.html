@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PokeCalpe - Episodios</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0; background: #fafafa;
+    color: #333;
+  }
+  header {
+    background-color: #ef5350;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  .info-box {
+    background-color: #fff3f3;
+    border: 2px solid #ef5350;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .info-box a {
+    color: #ef5350;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 1.6em;
+    margin-bottom: 5px;
+  }
+  hr {
+    border: none;
+    border-bottom: 2px solid #ef5350;
+    margin-bottom: 25px;
+    width: 60px;
+  }
+  .series-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .serie-box {
+    background: white;
+    border: 2px solid #ef5350;
+    border-radius: 12px;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  .serie-box:hover {
+    box-shadow: 0 0 10px #ef5350;
+  }
+  .serie-box img {
+    width: 100%;
+    border-bottom: 2px solid #ef5350;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .serie-box .serie-title {
+    padding: 12px 0;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #ef5350;
+  }
+</style>
+</head>
+<body>
+<header>Lista de Episodios de Pokémon</header>
+
+<main>
+  <div class="info-box">
+    A continuación encontrarás todos los episodios de Pokémon organizados por sus distintas series y especiales, pudiendo ver cada episodio online.<br><br>
+    Las películas de Pokémon se encuentran en otra sección: 
+    <a href="peliculas.html">Películas de Pokémon</a>
+  </div>
+
+  <h2>Serie Principal</h2>
+  <hr />
+
+  <div class="series-container">
+    <div class="serie-box" onclick="alert('Aquí puedes enlazar a la serie de Ash')">
+      <img src="https://pokemon-project.com/pokemon_anime/blank.png" alt="Serie de Ash" />
+      <div class="serie-title">Serie de Ash</div>
+    </div>
+    <div class="serie-box" onclick="alert('Aquí puedes enlazar a la serie de Liko')">
+      <img src="https://pokemon-project.com/pokemon_anime/blank.png" alt="Serie de Liko" />
+      <div class="serie-title">Serie de Liko</div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
