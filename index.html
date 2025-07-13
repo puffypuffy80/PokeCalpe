@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PokeCalpe - Portal Pokémon de Fans</title>
   <meta name="description" content="PokeCalpe: portal con episodios, películas, revistas, libros y más sobre Pokémon." />
+  <!-- Fuente bonita para títulos -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background: #f5f5f5;
+      color: #333;
     }
     header {
       background-color: #ef5350;
@@ -21,6 +24,9 @@
     }
     header h1 {
       margin: 0;
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
     }
     nav {
       position: relative;
@@ -43,11 +49,13 @@
       padding: 8px 12px;
       display: block;
       border-radius: 4px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s;
     }
     nav a:hover {
       background-color: #d32f2f;
     }
-    /* Menú desplegable */
     nav li ul {
       display: none;
       position: absolute;
@@ -67,6 +75,64 @@
     }
     nav li ul li a {
       padding: 8px 15px;
+      font-weight: normal;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+    main h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ef5350;
+    }
+    main p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .pokemon-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .pokemon-gallery img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      background: white;
+      padding: 5px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .pokemon-gallery img:hover {
+      transform: scale(1.1);
+    }
+    .inspirational {
+      background: #ef5350;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-style: italic;
+      font-size: 1.3rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #eee;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
@@ -94,10 +160,23 @@
 
   <main>
     <h2>Bienvenido a PokeCalpe</h2>
-    <p>Tu portal Pokémon con episodios, películas, revistas, libros y más.</p>
+    <p>Tu portal Pokémon con episodios, películas, revistas, libros y más. Explora, aprende y disfruta de todo lo relacionado con el mundo Pokémon.</p>
+    <p>En PokeCalpe encontrarás contenido exclusivo para fans: desde la Pokédex completa hasta las últimas películas y música oficial.</p>
+
+    <div class="pokemon-gallery" aria-label="Galería de Pokémon">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu" title="Pikachu" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur" title="Bulbasaur" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" title="Charmander" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle" title="Squirtle" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" alt="Mewtwo" title="Mewtwo" />
+    </div>
+
+    <div class="inspirational" aria-live="polite">
+      <p>"La verdadera fuerza está en nunca rendirse, igual que un Entrenador Pokémon siempre sigue adelante."</p>
+    </div>
   </main>
 
-  <footer style="text-align:center; padding: 15px; background:#eee; margin-top: 40px;">
+  <footer>
     &copy; 2025 PokeCalpe. Todos los derechos reservados.
   </footer>
 </body>
