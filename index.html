@@ -20,6 +20,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
     header h1 {
       margin: 0;
@@ -29,15 +30,17 @@
     }
     nav {
       position: relative;
+      width: 100%;
+      margin-top: 10px;
     }
     nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
-    }
-    nav > ul {
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
     nav li {
       position: relative;
@@ -125,7 +128,7 @@
       margin: 0 auto 40px auto;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
-    /* Estilos para el modal */
+    /* Modal styles */
     #pokemon-info-modal {
       display: none;
       position: fixed;
@@ -163,6 +166,55 @@
     }
     #pokemon-info-modal .content p {
       margin: 8px 0;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 8px;
+      }
+      nav li ul {
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+        display: none !important; /* Oculta submenú para móviles (se puede hacer toggle con JS si quieres) */
+      }
+      nav li:hover ul {
+        display: none !important;
+      }
+      nav li a {
+        padding: 10px;
+        font-size: 1.2rem;
+      }
+      .pokemon-gallery img {
+        width: 90px;
+        height: 90px;
+      }
+      main h2 {
+        font-size: 1.6rem;
+      }
+      main p {
+        font-size: 1rem;
+      }
+      .inspirational {
+        font-size: 1.1rem;
+        padding: 15px;
+        max-width: 95%;
+      }
+      #pokemon-info-modal {
+        max-width: 90%;
+        padding: 15px;
+      }
+      #pokemon-info-modal header h3 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
@@ -228,7 +280,6 @@
     const pokemonWeight = document.getElementById('pokemon-weight');
     const closeBtn = modal.querySelector('.close-btn');
 
-    // Función para abrir modal y cargar info
     async function openModal(pokemon) {
       try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -247,19 +298,16 @@
       }
     }
 
-    // Cerrar modal
     closeBtn.addEventListener('click', () => {
       modal.classList.remove('active');
     });
 
-    // Cerrar modal si se hace click fuera del contenido
     window.addEventListener('click', e => {
       if (e.target === modal) {
         modal.classList.remove('active');
       }
     });
 
-    // Añadir eventos click a las imágenes
     document.querySelectorAll('.pokemon-gallery img').forEach(img => {
       img.addEventListener('click', () => {
         const pokemon = img.getAttribute('data-pokemon');
