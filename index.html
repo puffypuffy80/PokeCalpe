@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PokeCalpe - Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -95,11 +96,32 @@
     }
 
     footer {
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px;
       background: #ef5350;
       color: white;
       margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .social i {
+      font-size: 1.3em;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .social i:hover {
+      transform: scale(1.2);
+      color: #ffd54f;
     }
   </style>
 </head>
@@ -125,15 +147,22 @@
     </section>
 
     <section class="galeria">
-      <img src="https://assets.pokemon.com/assets/cms2/img/misc/countries/esp/country_detail_pokemon.png" alt="Pikachu feliz">
-      <img src="https://assets.pokemon.com/assets/cms2/img/watch-pokemon/episodes/season01/season01_ep01_ss01.jpg" alt="Ash y Pikachu">
-      <img src="https://assets.pokemon.com/assets/cms2/img/watch-pokemon/movies/movie01/movie01_ss01.jpg" alt="Mewtwo">
-      <img src="https://assets.pokemon.com/assets/cms2/img/watch-pokemon/xy/episodes/xy01/xy01_ss01.jpg" alt="Serena y Fennekin">
+      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/025.png" alt="Pikachu feliz">
+      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/006.png" alt="Charizard">
+      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/150.png" alt="Mewtwo">
+      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/133.png" alt="Eevee">
     </section>
   </main>
 
   <footer>
-    &copy; 2025 PokeCalpe. Proyecto fan no oficial.
+    <span>&copy; 2025 PokeCalpe. Proyecto fan no oficial.</span>
+    <div class="social">
+      <span>Síguenos:</span>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
   </footer>
 </body>
 </html>
