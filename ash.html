@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PokeCalpe - Serie de Ash</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 960px;
+    margin: 30px auto;
+    background: #fafafa;
+    padding: 20px;
+    color: #333;
+  }
+  h1 {
+    color: #ef5350;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .bubble {
+    background: #fff3f3;
+    border: 2px solid #ef5350;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    line-height: 1.4;
+  }
+  .temporadas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 20px;
+    margin-bottom: 50px;
+  }
+  .temporada {
+    border: 2px solid #ef5350;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 15px 10px;
+    transition: box-shadow 0.3s ease;
+  }
+  .temporada:hover {
+    box-shadow: 0 0 10px #ef5350;
+  }
+  .temporada-logo {
+    max-width: 120px;
+    margin: 10px auto 10px auto;
+  }
+  .temporada-titulo {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: #ef5350;
+  }
+  .temporada-id {
+    font-weight: 700;
+    color: #b43737;
+    margin-bottom: 8px;
+  }
+  .temporada-detalle {
+    display: none;
+    background: white;
+    border: 2px solid #ef5350;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  .temporada-detalle small {
+    display: block;
+    color: #ef5350;
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-bottom: 6px;
+  }
+  .temporada-detalle h2 {
+    margin-top: 0;
+    color: #b02a2a;
+    font-weight: 900;
+  }
+  .temporada-detalle .bubble {
+    margin-top: 10px;
+  }
+  .episodios-lista {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 15px;
+  }
+  .episodio {
+    border: 2px solid #ef5350;
+    border-radius: 12px;
+    background: #fff;
+    padding: 10px;
+    display: flex;
+    gap: 15px;
+  }
+  .episodio img {
+    width: 130px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .episodio-info {
+    flex: 1;
+  }
+  .episodio-info h3 {
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    color: #ef5350;
+  }
+  .episodio-info p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.3;
+  }
+</style>
+<script>
+  function toggleDetalle(id) {
+    const detalle = document.getElementById(id);
+    if (detalle.style.display === 'block') {
+      detalle.style.display = 'none';
+    } else {
+      detalle.style.display = 'block';
+      // Scroll suave al detalle
+      detalle.scrollIntoView({behavior: 'smooth'});
+    }
+  }
+</script>
+</head>
+<body>
+
+<h1>Serie de Ash - Lista De Temporadas</h1>
+
+<div class="bubble">
+  A continuación encontrarás todas las temporadas de la Serie de Ash.<br><br>
+  Esta es la serie animada principal de Pokémon, en el que acompañamos a Ash y Pikachu en sus más de 1200 episodios por todo el mundo Pokémon.
+</div>
+
+<div class="temporadas-grid">
+  <!-- Temporada 1 -->
+  <div class="temporada" onclick="toggleDetalle('detalleT01')">
+    <div class="temporada-id">T01</div>
+    <img class="temporada-logo" src="https://assets.pokemon.com/assets/cms2/img/anime/season/season_01.png" alt="Temporada 1 Logo" />
+    <div class="temporada-titulo">La Serie Original</div>
+  </div>
+  <!-- Temporada 2 -->
+  <div class="temporada" onclick="toggleDetalle('detalleT02')">
+    <div class="temporada-id">T02</div>
+    <img class="temporada-logo" src="https://assets.pokemon.com/assets/cms2/img/anime/season/season_02.png" alt="Temporada 2 Logo" />
+    <div class="temporada-titulo">La Serie Johto</div>
+  </div>
+  <!-- Temporada 3 -->
+  <div class="temporada" onclick="toggleDetalle('detalleT03')">
+    <div class="temporada-id">T03</div>
+    <img class="temporada-logo" src="https://assets.pokemon.com/assets/cms2/img/anime/season/season_03.png" alt="Temporada 3 Logo" />
+    <div class="temporada-titulo">La Serie Hoenn</div>
+  </div>
+  <!-- Aquí puedes añadir más temporadas si quieres -->
+</div>
+
+<!-- Detalle Temporada 1 -->
+<div id="detalleT01" class="temporada-detalle">
+  <small>Serie de Ash</small>
+  <h2>La Serie Original - Lista de Episodios</h2>
+
+  <div class="bubble">
+    A continuación encontrarás todos los episodios de la Temporada 1, ¡Hazte con todos!, de la Serie de Ash.<br><br>
+    Es el décimo cumpleaños de Ash, y está listo para hacer lo que muchos chicos de 10 años en la región Kanto se proponen: ¡convertirse en un Entrenador Pokémon! Las cosas no salieron exactamente según lo planeado cuando terminó con un Pikachu en lugar de un primer Pokémon estándar, y ganar Medallas de Gimnasio fue mucho más duro de lo que pensó. Afortunadamente tiene a los antiguos Líderes de Gimnasio Brock y Misty a su lado, junto con un gran grupo de nuevos amigos Pokémon, incluidos Bulbasaur, Squirtle y Charmander (solo temporada 1).
+  </div>
+
+  <div class="episodios-lista">
+    <!-- Episodio 1 -->
+    <div class="episodio">
+      <img src="https://assets.pokemon.com/assets/cms2/img/anime/episode/SM001.png" alt="Episodio 1" />
+      <div class="episodio-info">
+        <h3>Episodio 1: ¡Pokémon, yo te elijo!</h3>
+        <p>Ash comienza su aventura en la región de Kanto con Pikachu.</p>
+      </div>
+    </div>
+    <!-- Episodio 2 -->
+    <div class="episodio">
+      <img src="https://assets.pokemon.com/assets/cms2/img/anime/episode/SM002.png" alt="Episodio 2" />
+      <div class="episodio-info">
+        <h3>Episodio 2: El combate en el bosque</h3>
+        <p>Ash se enfrenta a su primer reto en el Bosque Verde.</p>
+      </div>
+    </div>
+
+    <!-- Añade más episodios aquí, hasta 83 por ejemplo -->
+  </div>
+</div>
+
+<!-- Detalle Temporada 2 -->
+<div id="detalleT02" class="temporada-detalle">
+  <small>Serie de Ash</small>
+  <h2>La Serie Johto - Lista de Episodios</h2>
+  <div class="bubble">
+    Aquí puedes añadir la descripción para la Temporada 2, si quieres.
+  </div>
+</div>
+
+<!-- Detalle Temporada 3 -->
+<div id="detalleT03" class="temporada-detalle">
+  <small>Serie de Ash</small>
+  <h2>La Serie Hoenn - Lista de Episodios</h2>
+  <div class="bubble">
+    Aquí puedes añadir la descripción para la Temporada 3, si quieres.
+  </div>
+</div>
+
+</body>
+</html>
