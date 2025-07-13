@@ -37,10 +37,11 @@
       flex-wrap: wrap;
       list-style: none;
       justify-content: center;
+      padding: 10px;
     }
 
     nav ul li {
-      margin: 10px 15px;
+      margin: 0 15px;
     }
 
     nav ul li a {
@@ -123,6 +124,19 @@
       transform: scale(1.2);
       color: #ffd54f;
     }
+
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -133,7 +147,7 @@
 
   <nav>
     <ul>
-      <li><a href="index.html">Inicio</a></li>
+      <li><a href="/">Inicio</a></li>
       <li><a href="episodios.html">Episodios</a></li>
       <li><a href="peliculas.html">Películas</a></li>
       <li><a href="libros.html">Libros</a></li>
@@ -147,10 +161,10 @@
     </section>
 
     <section class="galeria">
-      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/025.png" alt="Pikachu feliz">
-      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/006.png" alt="Charizard">
-      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/150.png" alt="Mewtwo">
-      <img src="https://www.pokexperto.net/index2/imagenes/pokedex/pokemon/133.png" alt="Eevee">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee">
     </section>
   </main>
 
