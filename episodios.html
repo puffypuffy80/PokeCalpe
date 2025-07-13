@@ -1,121 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lista de Episodios de Pokémon</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #ef5350;
-        }
-        .info-box {
-            background-color: #fff;
-            border: 2px solid #ef5350;
-            border-radius: 8px;
-            padding: 15px 20px;
-            max-width: 600px;
-            margin: 20px auto;
-            font-size: 1.1em;
-            line-height: 1.4;
-        }
-        .info-box a {
-            color: #ef5350;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .info-box a:hover {
-            text-decoration: underline;
-        }
-        .section-title {
-            max-width: 600px;
-            margin: 40px auto 10px auto;
-            font-weight: bold;
-            font-size: 1.4em;
-            text-align: center;
-            color: #222;
-        }
-        hr.separator {
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-            border: 0;
-            border-top: 2px solid #ef5350;
-        }
-        .series-container {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-        }
-        .series-box {
-            background-color: #fff;
-            border: 2px solid #ef5350;
-            border-radius: 12px;
-            width: 48%;
-            text-align: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgb(239 83 80 / 0.3);
-            transition: transform 0.2s ease;
-            padding-bottom: 10px;
-        }
-        .series-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgb(239 83 80 / 0.5);
-        }
-        .series-box img {
-            width: 100%;
-            border-bottom: 2px solid #ef5350;
-            border-radius: 12px 12px 0 0;
-            object-fit: cover;
-            height: 250px;
-        }
-        .series-label {
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 12px;
-            color: #ef5350;
-        }
-        a.series-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Lista de Episodios de Pokémon</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ef5350;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .intro-box {
+      background-color: white;
+      border-left: 6px solid #ef5350;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 800px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .intro-box a {
+      color: #ef5350;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .intro-box a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    hr {
+      border: none;
+      height: 3px;
+      background-color: #ef5350;
+      width: 80%;
+      margin: 10px auto 30px auto;
+    }
+
+    .series-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .series-box {
+      background-color: white;
+      width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .series-box:hover {
+      transform: scale(1.03);
+    }
+
+    .series-box img {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ef5350;
+    }
+
+    .series-box-title {
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
 <body>
-    <h1>Lista de Episodios de Pokémon</h1>
 
-    <div class="info-box">
-        A continuación encontrarás todos los episodios de Pokémon organizados por sus distintas series y especiales, pudiendo ver cada episodio online.<br /><br />
-        Las películas de Pokémon se encuentran en otra sección: 
-        <a href="peliculas.html">Películas de Pokémon</a>.
-    </div>
+  <header>Lista de Episodios de Pokémon</header>
 
-    <div class="section-title">Serie Principal</div>
-    <hr class="separator" />
+  <div class="intro-box">
+    A continuación encontrarás todos los episodios de Pokémon organizados por sus distintas series y especiales, pudiendo ver cada episodio online.
+    <br><br>
+    Las películas de Pokémon se encuentran en otra sección: 
+    <a href="peliculas.html">Películas de Pokémon</a>
+  </div>
 
-    <div class="series-container">
-        <a href="ash.html" class="series-link">
-            <div class="series-box">
-                <img src="https://i.blogs.es/41982e/pokemon-ash-01/1366_2000.jpeg" alt="Serie de Ash" />
-                <div class="series-label">Serie de Ash</div>
-            </div>
-        </a>
-        <a href="liko.html" class="series-link">
-            <div class="series-box">
-                <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2023/12/pokemon-horizons-liko-lucius.jpg" alt="Serie de Liko" />
-                <div class="series-label">Serie de Liko</div>
-            </div>
-        </a>
-    </div>
+  <div class="section-title">Serie Principal</div>
+  <hr>
+
+  <div class="series-container">
+    <a href="ash.html">
+      <div class="series-box">
+        <img src="https://i.blogs.es/41982e/pokemon-ash-01/1366_2000.jpeg" alt="Serie de Ash">
+        <div class="series-box-title">Serie de Ash</div>
+      </div>
+    </a>
+
+    <a href="liko.html">
+      <div class="series-box">
+        <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2023/12/pokemon-horizons-liko-lucius.jpg" alt="Serie de Liko">
+        <div class="series-box-title">Serie de Liko</div>
+      </div>
+    </a>
+  </div>
+
 </body>
 </html>
-
 
