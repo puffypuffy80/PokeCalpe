@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PokeCalpe - Portal Pokémon de Fans</title>
   <meta name="description" content="PokeCalpe: portal con episodios, películas, revistas, libros y más sobre Pokémon." />
-  <!-- Fuente bonita para títulos -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -126,13 +125,44 @@
       margin: 0 auto 40px auto;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #eee;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #666;
+    /* Estilos para el modal */
+    #pokemon-info-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 90%;
+      padding: 20px;
+      z-index: 1500;
+    }
+    #pokemon-info-modal.active {
+      display: block;
+    }
+    #pokemon-info-modal header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    #pokemon-info-modal header h3 {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      color: #ef5350;
+    }
+    #pokemon-info-modal button.close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ef5350;
+    }
+    #pokemon-info-modal .content p {
+      margin: 8px 0;
     }
   </style>
 </head>
@@ -164,11 +194,11 @@
     <p>En PokeCalpe encontrarás contenido exclusivo para fans: desde la Pokédex completa hasta las últimas películas y música oficial.</p>
 
     <div class="pokemon-gallery" aria-label="Galería de Pokémon">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu" title="Pikachu" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur" title="Bulbasaur" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" title="Charmander" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle" title="Squirtle" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" alt="Mewtwo" title="Mewtwo" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu" title="Pikachu" data-pokemon="pikachu" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur" title="Bulbasaur" data-pokemon="bulbasaur" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" title="Charmander" data-pokemon="charmander" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle" title="Squirtle" data-pokemon="squirtle" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" alt="Mewtwo" title="Mewtwo" data-pokemon="mewtwo" />
     </div>
 
     <div class="inspirational" aria-live="polite">
@@ -176,8 +206,66 @@
     </div>
   </main>
 
-  <footer>
-    &copy; 2025 PokeCalpe. Todos los derechos reservados.
-  </footer>
+  <!-- Modal para mostrar info del Pokémon -->
+  <div id="pokemon-info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <header>
+      <h3 id="modal-title">Información Pokémon</h3>
+      <button class="close-btn" aria-label="Cerrar">×</button>
+    </header>
+    <div class="content">
+      <p><strong>Nombre:</strong> <span id="pokemon-name"></span></p>
+      <p><strong>Tipo(s):</strong> <span id="pokemon-types"></span></p>
+      <p><strong>Altura:</strong> <span id="pokemon-height"></span> m</p>
+      <p><strong>Peso:</strong> <span id="pokemon-weight"></span> kg</p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('pokemon-info-modal');
+    const pokemonName = document.getElementById('pokemon-name');
+    const pokemonTypes = document.getElementById('pokemon-types');
+    const pokemonHeight = document.getElementById('pokemon-height');
+    const pokemonWeight = document.getElementById('pokemon-weight');
+    const closeBtn = modal.querySelector('.close-btn');
+
+    // Función para abrir modal y cargar info
+    async function openModal(pokemon) {
+      try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+        if (!res.ok) throw new Error('Error al obtener datos');
+        const data = await res.json();
+
+        pokemonName.textContent = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+        pokemonTypes.textContent = data.types.map(t => t.type.name).join(', ');
+        pokemonHeight.textContent = (data.height / 10).toFixed(1);
+        pokemonWeight.textContent = (data.weight / 10).toFixed(1);
+
+        modal.classList.add('active');
+      } catch (error) {
+        alert('No se pudo cargar la información del Pokémon.');
+        console.error(error);
+      }
+    }
+
+    // Cerrar modal
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    // Cerrar modal si se hace click fuera del contenido
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+
+    // Añadir eventos click a las imágenes
+    document.querySelectorAll('.pokemon-gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        const pokemon = img.getAttribute('data-pokemon');
+        openModal(pokemon);
+      });
+    });
+  </script>
 </body>
 </html>
