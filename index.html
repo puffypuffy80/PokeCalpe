@@ -2,318 +2,138 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PokeCalpe - Portal Pokémon de Fans</title>
-  <meta name="description" content="PokeCalpe: portal con episodios, películas, revistas, libros y más sobre Pokémon." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokeCalpe - Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
       background: #f5f5f5;
       color: #333;
     }
+
     header {
       background-color: #ef5350;
-      padding: 10px 20px;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      margin: 0;
+      padding: 20px;
+      text-align: center;
       font-family: 'Fredoka One', cursive;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
     }
+
     nav {
-      position: relative;
-      width: 100%;
-      margin-top: 10px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
       flex-wrap: wrap;
+      list-style: none;
       justify-content: center;
-      gap: 10px;
     }
-    nav li {
-      position: relative;
+
+    nav ul li {
+      margin: 10px 15px;
     }
-    nav a {
-      color: white;
+
+    nav ul li a {
       text-decoration: none;
-      padding: 8px 12px;
-      display: block;
-      border-radius: 4px;
+      color: #ef5350;
       font-weight: bold;
-      font-size: 1rem;
-      transition: background-color 0.3s;
+      font-size: 1.1em;
     }
-    nav a:hover {
-      background-color: #d32f2f;
+
+    nav ul li a:hover {
+      text-decoration: underline;
     }
-    nav li ul {
-      display: none;
-      position: absolute;
-      top: 35px;
-      left: 0;
-      background-color: #ef5350;
-      padding: 5px 0;
-      border-radius: 4px;
-      min-width: 140px;
-      z-index: 1000;
-    }
-    nav li:hover ul {
-      display: block;
-    }
-    nav li ul li {
-      width: 100%;
-    }
-    nav li ul li a {
-      padding: 8px 15px;
-      font-weight: normal;
-    }
+
     main {
       max-width: 900px;
       margin: 30px auto;
-      padding: 0 15px;
-    }
-    main h2 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: #ef5350;
-    }
-    main p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .pokemon-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-    .pokemon-gallery img {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      background: white;
-      padding: 5px;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .pokemon-gallery img:hover {
-      transform: scale(1.1);
-    }
-    .inspirational {
-      background: #ef5350;
-      color: white;
       padding: 20px;
-      border-radius: 10px;
-      font-style: italic;
-      font-size: 1.3rem;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
-    /* Modal styles */
-    #pokemon-info-modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      max-width: 400px;
-      width: 90%;
-      padding: 20px;
-      z-index: 1500;
-    }
-    #pokemon-info-modal.active {
-      display: block;
-    }
-    #pokemon-info-modal header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-    #pokemon-info-modal header h3 {
-      margin: 0;
-      font-family: 'Fredoka One', cursive;
-      color: #222222;  /* Color oscuro para visibilidad */
-    }
-    #pokemon-info-modal button.close-btn {
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #222222;  /* Color oscuro para visibilidad */
-    }
-    #pokemon-info-modal .content p {
-      margin: 8px 0;
     }
 
-    /* Responsive styles */
-    @media (max-width: 600px) {
-      header {
-        justify-content: center;
-        text-align: center;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 8px;
-      }
-      nav li ul {
-        position: static;
-        background-color: transparent;
-        box-shadow: none;
-        padding: 0;
-        border-radius: 0;
-        display: none !important;
-      }
-      nav li:hover ul {
-        display: none !important;
-      }
-      nav li a {
-        padding: 10px;
-        font-size: 1.2rem;
-      }
-      .pokemon-gallery img {
-        width: 90px;
-        height: 90px;
-      }
-      main h2 {
-        font-size: 1.6rem;
-      }
-      main p {
-        font-size: 1rem;
-      }
-      .inspirational {
-        font-size: 1.1rem;
-        padding: 15px;
-        max-width: 95%;
-      }
-      #pokemon-info-modal {
-        max-width: 90%;
-        padding: 15px;
-      }
-      #pokemon-info-modal header h3 {
-        font-size: 1.3rem;
-      }
+    .inspiracion {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .inspiracion h2 {
+      color: #ef5350;
+      margin-bottom: 10px;
+    }
+
+    .inspiracion p {
+      font-size: 1.2em;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .galeria img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ef5350;
+      color: white;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>PokeCalpe</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li>
-          <a href="#">Contenido ▼</a>
-          <ul>
-            <li><a href="musica.html">Música</a></li>
-            <li><a href="pokedex.html">Pokédex</a></li>
-            <li><a href="episodios.html">Episodios</a></li>
-            <li><a href="libros.html">Libros</a></li>
-            <li><a href="peliculas.html">Películas</a></li>
-            <li><a href="tcg.html">TCG</a></li>
-            <li><a href="descargas.html">Descargas</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+    <p>¡Tu rincón Pokémon con magia en cada página!</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="peliculas.html">Películas</a></li>
+      <li><a href="libros.html">Libros</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <h2>Bienvenido a PokeCalpe</h2>
-    <p>Tu portal Pokémon con episodios, películas, revistas, libros y más. Explora, aprende y disfruta de todo lo relacionado con el mundo Pokémon.</p>
-    <p>En PokeCalpe encontrarás contenido exclusivo para fans: desde la Pokédex completa hasta las últimas películas y música oficial.</p>
+    <section class="inspiracion">
+      <h2>Bienvenido a PokeCalpe</h2>
+      <p>Explora el mundo Pokémon a través de episodios, películas y libros llenos de aventura. ¡Prepárate para atraparlos a todos!</p>
+    </section>
 
-    <div class="pokemon-gallery" aria-label="Galería de Pokémon">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu" title="Pikachu" data-pokemon="pikachu" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur" title="Bulbasaur" data-pokemon="bulbasaur" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" title="Charmander" data-pokemon="charmander" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle" title="Squirtle" data-pokemon="squirtle" />
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" alt="Mewtwo" title="Mewtwo" data-pokemon="mewtwo" />
-    </div>
-
-    <div class="inspirational" aria-live="polite">
-      <p>"La verdadera fuerza está en nunca rendirse, igual que un Entrenador Pokémon siempre sigue adelante."</p>
-    </div>
+    <section class="galeria">
+      <img src="https://assets.pokemon.com/assets/cms2/img/misc/countries/esp/country_detail_pokemon.png" alt="Pikachu feliz">
+      <img src="https://assets.pokemon.com/assets/cms2/img/watch-pokemon/episodes/season01/season01_ep01_ss01.jpg" alt="Ash y Pikachu">
+      <img src="https://assets.pokemon.com/assets/cms2/img/watch-pokemon/movies/movie01/movie01_ss01.jpg" alt="Mewtwo">
+      <img src="https://assets.pokemon.com/assets/cms2/img/watch-pokemon/xy/episodes/xy01/xy01_ss01.jpg" alt="Serena y Fennekin">
+    </section>
   </main>
 
-  <!-- Modal para mostrar info del Pokémon -->
-  <div id="pokemon-info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <header>
-      <h3 id="modal-title">Información Pokémon</h3>
-      <button class="close-btn" aria-label="Cerrar">×</button>
-    </header>
-    <div class="content">
-      <p><strong>Nombre:</strong> <span id="pokemon-name"></span></p>
-      <p><strong>Tipo(s):</strong> <span id="pokemon-types"></span></p>
-      <p><strong>Altura:</strong> <span id="pokemon-height"></span> m</p>
-      <p><strong>Peso:</strong> <span id="pokemon-weight"></span> kg</p>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById('pokemon-info-modal');
-    const pokemonName = document.getElementById('pokemon-name');
-    const pokemonTypes = document.getElementById('pokemon-types');
-    const pokemonHeight = document.getElementById('pokemon-height');
-    const pokemonWeight = document.getElementById('pokemon-weight');
-    const closeBtn = modal.querySelector('.close-btn');
-
-    async function openModal(pokemon) {
-      try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-        if (!res.ok) throw new Error('Error al obtener datos');
-        const data = await res.json();
-
-        pokemonName.textContent = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-        pokemonTypes.textContent = data.types.map(t => t.type.name).join
-        pokemonTypes.textContent = data.types.map(t => t.type.name).join(', ');
-        pokemonHeight.textContent = (data.height / 10).toFixed(1);
-        pokemonWeight.textContent = (data.weight / 10).toFixed(1);
-        modal.classList.add('active');
-      } catch (error) {
-        alert('No se pudo cargar la información del Pokémon.');
-      }
-    }
-
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
-
-    document.querySelectorAll('.pokemon-gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        const pokemon = img.getAttribute('data-pokemon');
-        openModal(pokemon);
-      });
-    });
-
-    // Cerrar modal si se pulsa fuera del contenido
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-  </script>
+  <footer>
+    &copy; 2025 PokeCalpe. Proyecto fan no oficial.
+  </footer>
 </body>
 </html>
