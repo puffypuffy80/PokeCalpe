@@ -2,132 +2,242 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PokeCalpe - Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
       background: #f5f5f5;
       color: #333;
     }
 
     header {
-      background: linear-gradient(90deg, #ffcb05, #3b4cca);
+      background-color: #ef5350;
       color: white;
-      padding: 40px 20px;
+      padding: 20px;
       text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 3em;
+      font-family: 'Fredoka One', cursive;
     }
 
     nav {
-      background-color: #3b4cca;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
       display: flex;
+      flex-wrap: wrap;
+      list-style: none;
       justify-content: center;
-      padding: 10px 0;
+      padding: 10px;
     }
 
-    nav a {
-      color: white;
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
       text-decoration: none;
-      margin: 0 20px;
+      color: #ef5350;
       font-weight: bold;
-      font-size: 18px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .main-content {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .main-content h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .section-box {
-      background-color: white;
-      max-width: 800px;
-      margin: 0 auto 40px auto;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .section-box p {
-      font-size: 1.2em;
-      line-height: 1.6em;
-    }
-
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
       font-size: 1.1em;
     }
 
-    .social-links a {
-      color: #3b4cca;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .social-links a:hover {
+    nav ul li a:hover {
       text-decoration: underline;
     }
 
-    footer {
-      background-color: #eeeeee;
-      text-align: center;
+    main {
+      max-width: 900px;
+      margin: 30px auto;
       padding: 20px;
-      font-size: 1em;
+    }
+
+    .inspiracion {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .inspiracion h2 {
+      color: #ef5350;
+      margin-bottom: 10px;
+    }
+
+    .inspiracion p {
+      font-size: 1.2em;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .galeria img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #ef5350;
+      color: white;
       margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .social i {
+      font-size: 1.3em;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .social i:hover {
+      transform: scale(1.2);
+      color: #ffd54f;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #ef5350;
+    }
+
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>PokeCalpe</h1>
-    <p>Tu portal de contenido Pokémon desde Calpe</p>
+    <p>¡Tu rincón Pokémon con magia en cada página!</p>
   </header>
 
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="episodios.html">Episodios</a>
-    <a href="peliculas.html">Películas</a>
-    <a href="libros.html">Libros</a>
+    <ul>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="peliculas.html">Películas</a></li>
+      <li><a href="libros.html">Libros</a></li>
+    </ul>
   </nav>
 
-  <div class="main-content">
-    <div class="section-box">
-      <h2>¡Bienvenido a PokeCalpe!</h2>
-      <p>Explora el mundo Pokémon como nunca antes. Aquí encontrarás todos los episodios, películas, libros y aventuras relacionados con el universo Pokémon, reunidos en una sola web.</p>
-    </div>
+  <main>
+    <section class="inspiracion">
+      <h2>Bienvenido a PokeCalpe</h2>
+      <p>Explora el mundo Pokémon a través de episodios, películas y libros llenos de aventura. ¡Prepárate para atraparlos a todos!</p>
+    </section>
 
-    <div class="section-box">
-      <h2>Redes Sociales</h2>
-      <div class="social-links">
-        <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@pokecalpe" target="_blank">https://www.tiktok.com/@pokecalpe</a></p>
-        <p><strong>Twitter:</strong> <a href="https://x.com/PokeCalpePKM" target="_blank">https://x.com/PokeCalpePKM</a></p>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/pokecalpe/" target="_blank">https://www.instagram.com/pokecalpe/</a></p>
-        <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@PokeCalpe" target="_blank">https://www.youtube.com/@PokeCalpe</a></p>
-      </div>
+    <section class="galeria">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu" onclick="mostrarInfo('Pikachu', '025', 'El Pokémon eléctrico más famoso del mundo. Leal, valiente y siempre cargado de energía.')">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard" onclick="mostrarInfo('Charizard', '006', 'Una fiera criatura de fuego y vuelo. Uno de los más queridos de la primera generación.')">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo" onclick="mostrarInfo('Mewtwo', '150', 'Creado científicamente, es uno de los Pokémon más poderosos y misteriosos.')">
+      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="Eevee" onclick="mostrarInfo('Eevee', '133', 'Con múltiples evoluciones posibles, Eevee representa el potencial y la adaptación.')">
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2025 PokeCalpe. Proyecto fan no oficial.</span>
+    <div class="social">
+      <span>Síguenos:</span>
+      <a href="https://x.com/PokeCalpePKM" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/pokecalpe/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@PokeCalpe" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@pokecalpe" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <h2 id="nombrePokemon"></h2>
+      <p><strong>N.º Pokédex:</strong> <span id="numeroPokemon"></span></p>
+      <p id="descripcionPokemon"></p>
     </div>
   </div>
 
-  <footer>
-    © 2025 PokeCalpe. Todos los derechos reservados.
-  </footer>
+  <script>
+    function mostrarInfo(nombre, numero, descripcion) {
+      document.getElementById('nombrePokemon').textContent = nombre;
+      document.getElementById('numeroPokemon').textContent = numero;
+      document.getElementById('descripcionPokemon').textContent = descripcion;
+      document.getElementById('modal').style.display = 'block';
+    }
 
+    function cerrarModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('modal')) {
+        cerrarModal();
+      }
+    }
+  </script>
 </body>
 </html>
