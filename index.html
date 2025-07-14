@@ -1,59 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PokeCalpe - Inicio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
       color: #333;
     }
+
     header {
-      background-color: #ffcb05;
-      color: #2a75bb;
-      padding: 20px;
+      background: linear-gradient(90deg, #ffcb05, #3b4cca);
+      color: white;
+      padding: 40px 20px;
       text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+    }
+
     nav {
-      background-color: #2a75bb;
+      background-color: #3b4cca;
       display: flex;
       justify-content: center;
-      padding: 10px;
+      padding: 10px 0;
     }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 20px;
       font-weight: bold;
+      font-size: 18px;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
-    main {
-      padding: 20px;
+
+    .main-content {
       text-align: center;
+      padding: 40px 20px;
     }
-    .section {
-      margin: 30px auto;
-      max-width: 600px;
+
+    .main-content h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .section-box {
       background-color: white;
-      padding: 20px;
-      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      padding: 30px;
+      border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    footer {
-      background-color: #eee;
-      padding: 20px;
-      text-align: center;
-      font-size: 16px;
-      margin-top: 50px;
+
+    .section-box p {
+      font-size: 1.2em;
+      line-height: 1.6em;
     }
-    a {
-      color: #2a75bb;
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1em;
+    }
+
+    .social-links a {
+      color: #3b4cca;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #eeeeee;
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -61,7 +98,7 @@
 
   <header>
     <h1>PokeCalpe</h1>
-    <p>Tu portal Pokémon en Calpe</p>
+    <p>Tu portal de contenido Pokémon desde Calpe</p>
   </header>
 
   <nav>
@@ -71,20 +108,22 @@
     <a href="libros.html">Libros</a>
   </nav>
 
-  <main>
-    <div class="section">
+  <div class="main-content">
+    <div class="section-box">
       <h2>¡Bienvenido a PokeCalpe!</h2>
-      <p>Descubre todo el contenido de Pokémon: series, películas, libros y mucho más, todo desde un solo lugar.</p>
+      <p>Explora el mundo Pokémon como nunca antes. Aquí encontrarás todos los episodios, películas, libros y aventuras relacionados con el universo Pokémon, reunidos en una sola web.</p>
     </div>
 
-    <div class="section">
-      <h3>Redes Sociales</h3>
-      <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@pokecalpe" target="_blank">https://www.tiktok.com/@pokecalpe</a></p>
-      <p><strong>Twitter:</strong> <a href="https://x.com/PokeCalpePKM" target="_blank">https://x.com/PokeCalpePKM</a></p>
-      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/pokecalpe/" target="_blank">https://www.instagram.com/pokecalpe/</a></p>
-      <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@PokeCalpe" target="_blank">https://www.youtube.com/@PokeCalpe</a></p>
+    <div class="section-box">
+      <h2>Redes Sociales</h2>
+      <div class="social-links">
+        <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@pokecalpe" target="_blank">https://www.tiktok.com/@pokecalpe</a></p>
+        <p><strong>Twitter:</strong> <a href="https://x.com/PokeCalpePKM" target="_blank">https://x.com/PokeCalpePKM</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/pokecalpe/" target="_blank">https://www.instagram.com/pokecalpe/</a></p>
+        <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@PokeCalpe" target="_blank">https://www.youtube.com/@PokeCalpe</a></p>
+      </div>
     </div>
-  </main>
+  </div>
 
   <footer>
     © 2025 PokeCalpe. Todos los derechos reservados.
