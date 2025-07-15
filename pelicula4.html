@@ -9,59 +9,40 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f5f5f5;
-      color: #333;
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       min-height: 100vh;
     }
-
-    header {
+    .video-bubble {
       background-color: #ef5350;
-      color: white;
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      font-family: 'Fredoka One', cursive;
-      margin-bottom: 20px;
+      border-radius: 30px;
+      padding: 15px;
+      max-width: 800px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-
-    main {
-      max-width: 900px;
-      width: 90%;
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      color: #ef5350;
-      margin-bottom: 20px;
-      font-family: 'Fredoka One', cursive;
-      text-align: center;
-    }
-
     video {
+      border-radius: 20px;
       width: 100%;
-      border-radius: 12px;
-      outline: none;
+      height: auto;
+      display: block;
+    }
+    h1 {
+      text-align: center;
+      color: #ef5350;
+      font-family: 'Fredoka One', cursive;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="video-bubble">
     <h1>Pokémon 4Ever</h1>
-    <p>Estreno: 15/10/2003</p>
-  </header>
-
-  <main>
-    <video controls preload="metadata">
+    <video controls>
       <source src="https://drive.google.com/uc?export=download&id=1pfbEIxQtdb0fmNDfKXxm77Wpd7eluIBS" type="video/mp4" />
-      Tu navegador no soporta la reproducción de video.
     </video>
-  </main>
+  </div>
 </body>
 </html>
