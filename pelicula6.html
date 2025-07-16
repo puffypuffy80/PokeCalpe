@@ -2,20 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PokeCalpe - Jirachi y los Deseos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jirachi y los Deseos - PokeCalpe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+    * {
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefefe;
+      color: #333;
+    }
+
     header {
       background-color: #ef5350;
       color: white;
@@ -23,35 +26,60 @@
       text-align: center;
       font-family: 'Fredoka One', cursive;
     }
+
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ef5350;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
     main {
-      flex: 1;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 30px auto;
       padding: 20px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       text-align: center;
     }
+
     h1 {
       color: #ef5350;
       font-family: 'Fredoka One', cursive;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
-    p {
-      font-size: 1.1em;
-      margin-bottom: 30px;
-    }
+
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0 2px 15px rgba(239, 83, 80, 0.5);
       background: #000;
-      margin-bottom: 30px;
     }
+
     .video-container iframe {
       position: absolute;
       top: 0;
@@ -61,27 +89,47 @@
       border: 0;
       border-radius: 15px;
     }
-    a.back-link {
-      display: inline-block;
-      background-color: #ef5350;
-      color: white;
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      font-family: 'Fredoka One', cursive;
-    }
-    a.back-link:hover {
-      background-color: #d43d3a;
-    }
+
     footer {
-      background-color: #ef5350;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #ef5350;
       color: white;
-      padding: 15px;
-      text-align: center;
-      font-family: 'Segoe UI', sans-serif;
       font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .social i {
+      font-size: 1.3em;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .social i:hover {
+      transform: scale(1.2);
+      color: #ffd54f;
+    }
+
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
     }
   </style>
 </head>
@@ -91,17 +139,31 @@
     <p>¡Tu rincón Pokémon con magia en cada página!</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="peliculas.html">Películas</a></li>
+      <li><a href="libros.html">Libros</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <h1>Jirachi y los Deseos</h1>
-    <p>Estreno: 01/06/2004</p>
+    <h1>Película 6: Jirachi y los Deseos</h1>
     <div class="video-container">
-      <iframe src="https://player.vimeo.com/video/1101777406" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <iframe src="https://player.vimeo.com/video/1101777406" allowfullscreen></iframe>
     </div>
-    <a href="peliculas.html" class="back-link">← Volver a Películas</a>
   </main>
 
   <footer>
-    &copy; 2025 PokeCalpe. Proyecto fan no oficial.
+    <span>&copy; 2025 PokeCalpe. Proyecto fan no oficial.</span>
+    <div class="social">
+      <span>Síguenos:</span>
+      <a href="https://www.tiktok.com/@pokecalpe" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://x.com/PokeCalpePKM" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/pokecalpe/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@PokeCalpe" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
   </footer>
 </body>
 </html>
