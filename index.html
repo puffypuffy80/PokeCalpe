@@ -2,11 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PokeCalpe - Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    /* Tus estilos anteriores (resumidos para brevedad) */
     * {
       margin: 0;
       padding: 0;
@@ -25,6 +26,7 @@
       padding: 20px;
       text-align: center;
       font-family: 'Fredoka One', cursive;
+      position: relative;
     }
 
     nav {
@@ -126,15 +128,23 @@
       color: #ffd54f;
     }
 
-    /* Modal */
+    #user-info {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #fff;
+      user-select: none;
+    }
+
+    /* Modal base */
     .modal {
       display: none;
       position: fixed;
       z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       overflow: auto;
       background: rgba(0,0,0,0.7);
     }
@@ -159,6 +169,45 @@
       color: #ef5350;
     }
 
+    .modal-content input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
+      background-color: #ef5350;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal-content button:hover {
+      background-color: #d43c3c;
+    }
+
+    .pikachu-feliz {
+      margin-top: 15px;
+      width: 120px;
+      user-select: none;
+    }
+
+    /* Mensaje de gracias */
+    #graciasMensaje {
+      font-size: 1.3em;
+      color: #ef5350;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
     @media screen and (max-width: 600px) {
       nav ul {
         flex-direction: column;
@@ -177,6 +226,7 @@
   <header>
     <h1>PokeCalpe</h1>
     <p>¡Tu rincón Pokémon con magia en cada página!</p>
+    <div id="user-info"></div>
   </header>
 
   <nav>
@@ -212,6 +262,7 @@
     </div>
   </footer>
 
+  <!-- Modal Pokémon info original -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="cerrarModal()">&times;</span>
@@ -221,7 +272,29 @@
     </div>
   </div>
 
+  <!-- Modal Registro socio -->
+  <div class="modal" id="modalRegistro">
+    <div class="modal-content" id="modalRegistroContent">
+      <span class="close" onclick="cerrarModalRegistro()">&times;</span>
+
+      <div id="formularioRegistro">
+        <h2>Registro de Socio PokeCalpe</h2>
+        <p>Introduce tus datos para hacerte socio y recibir novedades:</p>
+        <input type="text" id="inputNombre" placeholder="Tu nombre" maxlength="20" />
+        <input type="email" id="inputEmail" placeholder="Tu correo electrónico" maxlength="50" />
+        <button onclick="registrarSocio()">Aceptar</button>
+        <p id="errorRegistro" style="color:red; display:none; margin-top:10px;"></p>
+      </div>
+
+      <div id="mensajeGracias" style="display:none;">
+        <p id="graciasMensaje">Gracias por hacerte socio de PokeCalpe!!!</p>
+        <img src="https://img.pokemondb.net/sprites/home/normal/pikachu.png" alt="Pikachu feliz" class="pikachu-feliz" />
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Modal info Pokémon
     function mostrarInfo(nombre, numero, descripcion) {
       document.getElementById('nombrePokemon').textContent = nombre;
       document.getElementById('numeroPokemon').textContent = numero;
@@ -233,9 +306,99 @@
       document.getElementById('modal').style.display = 'none';
     }
 
+    // Modal registro socio
+    function mostrarModalRegistro() {
+      document.getElementById('modalRegistro').style.display = 'block';
+    }
+
+    function cerrarModalRegistro() {
+      document.getElementById('modalRegistro').style.display = 'none';
+      document.getElementById('errorRegistro').style.display = 'none';
+      document.getElementById('inputNombre').value = '';
+      document.getElementById('inputEmail').value = '';
+      // Restablecer formulario y mensaje
+      document.getElementById('formularioRegistro').style.display = 'block';
+      document.getElementById('mensajeGracias').style.display = 'none';
+    }
+
+    function validarEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email.toLowerCase());
+    }
+
+    function registrarSocio() {
+      const nombre = document.getElementById('inputNombre').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+      const errorElem = document.getElementById('errorRegistro');
+
+      if (nombre.length < 2) {
+        errorElem.textContent = 'El nombre debe tener al menos 2 caracteres.';
+        errorElem.style.display = 'block';
+        return;
+      }
+      if (nombre.length > 20) {
+        errorElem.textContent = 'El nombre es demasiado largo.';
+        errorElem.style.display = 'block';
+        return;
+      }
+
+      if (!validarEmail(email)) {
+        errorElem.textContent = 'Introduce un correo electrónico válido.';
+        errorElem.style.display = 'block';
+        return;
+      }
+
+      // Guardar solo el nombre para mostrar después, pero podrías guardar también email si quieres.
+      localStorage.setItem('pokecalpeSocio', nombre);
+
+      // Mostrar mensaje de gracias
+      document.getElementById('errorRegistro').style.display = 'none';
+      document.getElementById('formularioRegistro').style.display = 'none';
+      document.getElementById('mensajeGracias').style.display = 'block';
+    }
+
+    // Mostrar bienvenida en header
+    function mostrarBienvenida(nombre) {
+      const userInfo = document.getElementById('user-info');
+      userInfo.textContent = `Bienvenido/a, ${nombre}`;
+    }
+
+    // Al cerrar el modalRegistro tras el mensaje, poner bienvenida arriba
+    // Para ello, capturamos click en la X o click fuera
+
+    // Cerrar modal y mostrar bienvenida si ya se hizo registro
+    function cerrarModalRegistro() {
+      document.getElementById('modalRegistro').style.display = 'none';
+      document.getElementById('errorRegistro').style.display = 'none';
+      document.getElementById('inputNombre').value = '';
+      document.getElementById('inputEmail').value = '';
+      document.getElementById('formularioRegistro').style.display = 'block';
+      document.getElementById('mensajeGracias').style.display = 'none';
+
+      // Mostrar bienvenida si socio registrado
+      const socio = localStorage.getItem('pokecalpeSocio');
+      if (socio) {
+        mostrarBienvenida(socio);
+      }
+    }
+
+    // Para detectar clic fuera del modal y cerrarlo
     window.onclick = function(event) {
       if (event.target == document.getElementById('modal')) {
         cerrarModal();
+      }
+      if (event.target == document.getElementById('modalRegistro')) {
+        cerrarModalRegistro();
+      }
+    }
+
+    // Al cargar la página, comprobar socio
+    window.onload = function() {
+      const socio = localStorage.getItem('pokecalpeSocio');
+      if (socio) {
+        mostrarBienvenida(socio);
+      } else {
+        mostrarModalRegistro();
       }
     }
   </script>
