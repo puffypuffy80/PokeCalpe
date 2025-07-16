@@ -281,7 +281,6 @@
         <h2>Registro de Socio PokeCalpe</h2>
         <p>Introduce tus datos para hacerte socio y recibir novedades:</p>
         <input type="text" id="inputNombre" placeholder="Tu nombre" maxlength="20" />
-        <input type="email" id="inputEmail" placeholder="Tu correo electrónico" maxlength="50" />
         <button onclick="registrarSocio()">Aceptar</button>
         <p id="errorRegistro" style="color:red; display:none; margin-top:10px;"></p>
       </div>
@@ -315,7 +314,6 @@
       document.getElementById('modalRegistro').style.display = 'none';
       document.getElementById('errorRegistro').style.display = 'none';
       document.getElementById('inputNombre').value = '';
-      document.getElementById('inputEmail').value = '';
       // Restablecer formulario y mensaje
       document.getElementById('formularioRegistro').style.display = 'block';
       document.getElementById('mensajeGracias').style.display = 'none';
@@ -328,7 +326,6 @@
 
     function registrarSocio() {
       const nombre = document.getElementById('inputNombre').value.trim();
-      const email = document.getElementById('inputEmail').value.trim();
       const errorElem = document.getElementById('errorRegistro');
 
       if (nombre.length < 2) {
@@ -338,12 +335,6 @@
       }
       if (nombre.length > 20) {
         errorElem.textContent = 'El nombre es demasiado largo.';
-        errorElem.style.display = 'block';
-        return;
-      }
-
-      if (!validarEmail(email)) {
-        errorElem.textContent = 'Introduce un correo electrónico válido.';
         errorElem.style.display = 'block';
         return;
       }
