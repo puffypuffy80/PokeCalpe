@@ -2,122 +2,166 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PokeCalpe - Lucario y el Misterio de Mew</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Película 8 - Lucario y el Misterio de Mew</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
     header {
       background-color: #ef5350;
       color: white;
       padding: 20px;
       text-align: center;
       font-family: 'Fredoka One', cursive;
-      font-size: 2em;
     }
+
     nav {
-      background: white;
+      background: #ffffff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 10px 0;
-      text-align: center;
     }
-    nav a {
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
       text-decoration: none;
       color: #ef5350;
       font-weight: bold;
-      margin: 0 15px;
       font-size: 1.1em;
     }
-    nav a:hover {
+
+    nav ul li a:hover {
       text-decoration: underline;
     }
+
     main {
       max-width: 900px;
-      margin: 30px auto;
-      background: white;
+      margin: 40px auto;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: flex-start;
+      background-color: white;
+      border-radius: 24px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
     }
-    .poster {
-      flex: 1 1 250px;
-      max-width: 250px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    .info {
-      flex: 2 1 600px;
-    }
-    .info h2 {
-      font-family: 'Fredoka One', cursive;
+
+    h1 {
+      text-align: center;
       color: #ef5350;
-      margin-bottom: 10px;
+      font-family: 'Fredoka One', cursive;
+      margin-bottom: 25px;
     }
-    .info p {
+
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 20px;
+    }
+
+    p.description {
       font-size: 1.1em;
+      text-align: center;
+      color: #444;
       margin-bottom: 20px;
     }
-    video {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      background: black;
-    }
-    footer {
-      background-color: #ef5350;
-      color: white;
+
+    a.back {
+      display: inline-block;
       text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      margin-top: 40px;
+      width: 100%;
+      margin-top: 20px;
+      color: #ef5350;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.05em;
     }
-    @media (max-width: 700px) {
-      main {
-        flex-direction: column;
-        align-items: center;
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ef5350;
+      color: white;
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      .video-container {
+        padding-top: 70%;
       }
-      .poster, .info {
-        flex: unset;
-        max-width: 100%;
+
+      p.description {
+        font-size: 1em;
       }
     }
   </style>
 </head>
 <body>
-  <header>PokeCalpe</header>
+  <header>
+    <h1>PokeCalpe</h1>
+    <p>¡Tu rincón Pokémon con magia en cada página!</p>
+  </header>
 
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="episodios.html">Episodios</a>
-    <a href="peliculas.html">Películas</a>
-    <a href="libros.html">Libros</a>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="peliculas.html">Películas</a></li>
+      <li><a href="libros.html">Libros</a></li>
+    </ul>
   </nav>
 
   <main>
-    <img class="poster" src="https://pokemon-project.com/cdn-cgi/image/width=200/https://pokemon-project.com/pelis/1/08/Poster_ES.jpg" alt="Lucario y el Misterio de Mew" />
-    <div class="info">
-      <h2>Lucario y el Misterio de Mew</h2>
-      <p><strong>Fecha de estreno:</strong> 16/06/2007</p>
+    <h1>Película 8: Lucario y el Misterio de Mew</h1>
 
-      <video controls preload="metadata" poster="https://pokemon-project.com/cdn-cgi/image/width=200/https://pokemon-project.com/pelis/1/08/Poster_ES.jpg">
-        <source src="https://drive.google.com/uc?export=download&id=1R4i8zEIzLQxU5DJd_15mTO9ICztVyIfz" type="video/mp4" />
-        Tu navegador no soporta la reproducción de video.
-      </video>
+    <div class="video-container">
+      <iframe src="https://www.dailymotion.com/embed/video/x9n008q" allowfullscreen allow="autoplay"></iframe>
     </div>
+
+    <p class="description">
+      Ash y sus amigos descubren el misterio de Lucario, un Pokémon del pasado con una fuerte conexión con el aura. Juntos, se embarcan en una aventura épica en busca del legendario Mew. 
+    </p>
+
+    <a class="back" href="peliculas.html">← Volver a la lista de películas</a>
   </main>
 
   <footer>
-    &copy; 2025 PokeCalpe. Proyecto fan no oficial.
+    &copy; 2025 PokeCalpe. Proyecto fan no oficial. Todos los derechos de Pokémon pertenecen a sus respectivos propietarios.
   </footer>
 </body>
 </html>
